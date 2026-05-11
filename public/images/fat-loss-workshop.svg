@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#120800"/>
+      <stop offset="100%" style="stop-color:#1e0f00"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="100%" style="stop-color:#FFB347"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="800" height="440" fill="url(#bg)"/>
+  <line x1="0" y1="110" x2="800" y2="110" stroke="#FF6B3509" stroke-width="1"/>
+  <line x1="0" y1="220" x2="800" y2="220" stroke="#FF6B3509" stroke-width="1"/>
+  <line x1="0" y1="330" x2="800" y2="330" stroke="#FF6B3509" stroke-width="1"/>
+  <line x1="200" y1="0" x2="200" y2="440" stroke="#FF6B3509" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="440" stroke="#FF6B3509" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="440" stroke="#FF6B3509" stroke-width="1"/>
+  <!-- Glow -->
+  <ellipse cx="400" cy="220" rx="190" ry="100" fill="#FF6B3522" filter="url(#blur)"/>
+  <!-- Chart bars -->
+  <rect x="220" y="280" width="55" height="40" rx="3" fill="#FF6B3533"/>
+  <rect x="295" y="250" width="55" height="70" rx="3" fill="#FF6B3555"/>
+  <rect x="370" y="200" width="55" height="120" rx="3" fill="#FF6B3577"/>
+  <rect x="445" y="155" width="55" height="165" rx="3" fill="#FF6B3599"/>
+  <rect x="520" y="110" width="55" height="210" rx="3" fill="#FF6B35"/>
+  <!-- Bar tops glow -->
+  <rect x="220" y="280" width="55" height="4" rx="2" fill="#FFB347" opacity="0.7"/>
+  <rect x="295" y="250" width="55" height="4" rx="2" fill="#FFB347" opacity="0.7"/>
+  <rect x="370" y="200" width="55" height="4" rx="2" fill="#FFB347" opacity="0.8"/>
+  <rect x="445" y="155" width="55" height="4" rx="2" fill="#FFB347" opacity="0.9"/>
+  <rect x="520" y="110" width="55" height="4" rx="2" fill="#FFE0B2"/>
+  <!-- Baseline -->
+  <line x1="200" y1="320" x2="600" y2="320" stroke="#FF6B3544" stroke-width="1.5"/>
+  <!-- Trend arrow -->
+  <path d="M230 290 L340 260 L430 205 L530 130" fill="none" stroke="url(#arrow)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="530,118 545,138 515,138" fill="#FF6B35"/>
+  <!-- Label -->
+  <text x="400" y="400" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#FF6B3566" letter-spacing="5" font-weight="700">FAT LOSS BLUEPRINT</text>
+</svg>

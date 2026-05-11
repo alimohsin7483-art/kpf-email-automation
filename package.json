@@ -1,0 +1,29 @@
+{
+  "name": "kpf-academy-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-email/components": "^0.0.22",
+    "@react-email/render": "^2.0.8",
+    "next": "14.2.3",
+    "razorpay": "^2.9.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-email": "^2.1.5",
+    "resend": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "typescript": "^5"
+  }
+}

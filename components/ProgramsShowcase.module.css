@@ -1,0 +1,398 @@
+/* ── SHOWCASE SECTION ──────────────────────────────────────────────────────── */
+/*
+ * Designed to sit entirely on one screen on desktop.
+ * Total height budget: ~520px max.
+ * padding-top/bottom kept tight so hero above + stats below don't push this off.
+ */
+.showcase {
+  padding: 4rem 0 4rem;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  /* centre everything inside */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── HEADER ────────────────────────────────────────────────────────────────── */
+.header {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 3rem;
+  margin-bottom: 1.6rem;
+  text-align: center;
+}
+.label {
+  justify-content: center;
+}
+
+.label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+.label::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: var(--neon);
+}
+.label::after {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: var(--neon);
+}
+
+.heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.sub {
+  font-size: 0.9rem;
+  color: var(--gray);
+  font-family: 'Barlow', sans-serif;
+}
+
+/* ── CATEGORY TABS ─────────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 3rem;
+  margin-bottom: 1.8rem;
+  border-bottom: 1px solid var(--border);
+  justify-content: center;
+}
+
+.tab {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dimgray);
+  padding: 0.7rem 1.8rem 0.8rem;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--offwhite);
+}
+
+.tabActive {
+  color: var(--white);
+}
+
+/* animated underline */
+.tabLine {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--neon);
+  box-shadow: 0 0 8px rgba(244,197,66,0.6);
+  animation: tabSlide 0.2s ease forwards;
+}
+
+@keyframes tabSlide {
+  from { opacity: 0; transform: scaleX(0.4); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+/* ── SLIDER WRAPPER (arrows + track) ──────────────────────────────────────── */
+.sliderWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 3rem;
+  gap: 1rem;
+}
+
+/* ── ARROW BUTTONS ─────────────────────────────────────────────────────────── */
+.arrow {
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border2);
+  background: var(--card);
+  color: var(--gray);
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
+  z-index: 2;
+  /* slight 3-D look */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.arrow:hover:not(:disabled) {
+  border-color: var(--neon);
+  color: var(--neon);
+  background: var(--card2);
+  box-shadow: 0 0 12px rgba(244,197,66,0.25), 0 4px 16px rgba(0,0,0,0.6);
+}
+
+.arrowDim {
+  opacity: 0.25;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── SCROLLABLE TRACK ─────────────────────────────────────────────────────── */
+.track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0.5rem 1.5rem;
+  flex: 1;
+  /* centre cards when fewer than fill the row */
+  justify-content: safe center;
+}
+.track::-webkit-scrollbar { display: none; }
+
+/* ── CARD ──────────────────────────────────────────────────────────────────── */
+/*
+ * Size: fixed 240px wide, auto height (≈ 280–300px total).
+ * 3-D bubble effect: border-radius + layered box-shadows + subtle backdrop.
+ * translateZ(0) forces GPU layer for smooth hover.
+ */
+.card {
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: default;
+
+  /* 3-D depth stack */
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.04) inset,   /* top inner highlight */
+    0 -1px 0 rgba(0,0,0,0.6) inset,          /* bottom inner shadow */
+    0 8px 24px rgba(0,0,0,0.65),
+    0 2px 6px rgba(0,0,0,0.4);
+
+  transform: translateZ(0) translateY(0);
+  transition:
+    transform 0.38s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.38s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.28s ease;
+}
+
+.card:hover {
+  transform: translateZ(0) translateY(-8px) scale(1.03);
+  border-color: rgba(244,197,66,0.3);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.06) inset,
+    0 -1px 0 rgba(0,0,0,0.6) inset,
+    0 24px 56px rgba(0,0,0,0.8),
+    0 8px 20px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(244,197,66,0.12);
+}
+
+/* ── IMAGE AREA ─────────────────────────────────────────────────────────────── */
+.imgWrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  flex-shrink: 0;
+}
+
+.img {
+  transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+.card:hover .img {
+  transform: scale(1.08) !important;
+}
+
+/* colour + dark tint over image */
+.imgTint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* tag badge */
+.badge {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid;
+  padding: 0.22rem 0.55rem;
+  background: rgba(10,10,15,0.82);
+  backdrop-filter: blur(6px);
+  border-radius: 3px;
+}
+
+/* ── CARD BODY ─────────────────────────────────────────────────────────────── */
+.body {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  color: var(--white);
+}
+
+/* ── CTA BUTTON — gold liquid rise ────────────────────────────────────────── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border: 1px solid var(--accent, var(--neon));
+  color: var(--accent, var(--neon));
+  padding: 0.42rem 0.85rem;
+  border-radius: 4px;
+  width: fit-content;
+  margin-top: auto;
+
+  transition:
+    color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+/* liquid gold fill */
+.cta::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 100%;
+  background: linear-gradient(160deg, #7A4D00 0%, #C89B2F 28%, #FFD76A 58%, #FFF0B2 74%, #B8860B 100%);
+  transform: translateY(110%);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.card:hover .cta {
+  color: #050508;
+  box-shadow: 0 0 12px rgba(244,197,66,0.35);
+  border-color: transparent;
+}
+.card:hover .cta::before {
+  transform: translateY(0%);
+}
+
+.ctaArrow {
+  transition: transform 0.3s ease;
+}
+.card:hover .ctaArrow {
+  transform: translateX(3px);
+}
+
+/* ── BUBBLE GLOW (behind card bottom) ─────────────────────────────────────── */
+.glow {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  filter: blur(16px);
+  z-index: -1;
+}
+.card:hover .glow {
+  opacity: 1;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────────────────── */
+
+/* ── DOT INDICATORS ─────────────────────────────────────────────────────────── */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  padding: 0 3rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s, width 0.25s;
+}
+
+.dotActive {
+  background: var(--neon);
+  transform: scale(1.3);
+  width: 18px;
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(244,197,66,0.5);
+}
+
+@media (max-width: 900px) {
+  .showcase { padding: 3rem 0 3rem; }
+  .header { padding: 0 1.5rem; }
+  .tabs { padding: 0 1.5rem; justify-content: flex-start; }
+  .sliderWrap { padding: 0 1.5rem; }
+  .arrow { display: none; }      /* mobile: swipe only */
+  .track { padding: 1rem 0 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .card { flex: 0 0 200px; }
+  .imgWrap { height: 130px; }
+}

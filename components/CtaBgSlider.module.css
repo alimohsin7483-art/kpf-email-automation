@@ -1,0 +1,128 @@
+/* ── SECTION ────────────────────────────────────────────────────────────────── */
+.section {
+  position: relative;
+  padding: 9rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ── BACKGROUND SLIDESHOW ───────────────────────────────────────────────────── */
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.bgSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.bgActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* heavy dark overlay — text must always be readable */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(5,5,8,0.78) 0%, rgba(5,5,8,0.68) 50%, rgba(5,5,8,0.82) 100%);
+  z-index: 0;
+}
+
+/* subtle gold radial glow in centre */
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(212,255,0,0.05) 0%, transparent 65%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── CONTENT ────────────────────────────────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28vw;
+  color: rgba(212,255,0,0.025);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.sub {
+  font-size: 1.1rem;
+  color: var(--gray);
+  max-width: 480px;
+  margin: 0 auto 3.5rem;
+  line-height: 1.8;
+  position: relative;
+}
+
+.actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* ── SLIDE DOTS ─────────────────────────────────────────────────────────────── */
+.dots {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.45rem;
+  z-index: 1;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, width 0.3s, transform 0.3s;
+}
+
+.dotActive {
+  background: var(--neon);
+  width: 16px;
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(244,197,66,0.6);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .section { padding: 6rem 1.5rem 5rem; }
+}

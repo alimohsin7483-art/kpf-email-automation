@@ -1,0 +1,130 @@
+.heroInner { position: relative; z-index: 2; max-width: 620px; }
+.heroTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7vw, 7rem); letter-spacing: 0.04em; line-height: 0.95; margin-bottom: 1.8rem; }
+.neon { color: var(--neon); }
+.heroSub { font-size: 1.1rem; color: var(--gray); line-height: 1.8; }
+
+.plansSection { padding: 7rem 4rem 5rem; }
+.plansGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem; }
+
+/* 3D Plan Card */
+.planCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--border2);
+  padding: 3rem 2.5rem;
+  display: flex; flex-direction: column; gap: 2rem;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  transition:
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.4s,
+    border-color 0.3s;
+}
+.planCard:hover {
+  transform: translateY(-14px) rotateX(4deg) rotateY(-1deg) scale(1.02);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.85), 0 0 40px rgba(212,255,0,0.1);
+  border-top-color: var(--neon);
+}
+.highlighted {
+  border-color: rgba(212,255,0,0.35) !important;
+  border-top-color: var(--neon) !important;
+  background: var(--card2) !important;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.6), 0 0 40px rgba(212,255,0,0.1) !important;
+}
+.highlighted:hover {
+  box-shadow: 0 32px 80px rgba(0,0,0,0.85), 0 0 60px rgba(212,255,0,0.2) !important;
+}
+.popularBadge {
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: var(--neon); color: var(--black);
+  font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem;
+  font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.35rem 1.5rem; white-space: nowrap;
+}
+.planName { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.1em; margin-bottom: 0.6rem; }
+.planDesc { font-size: 0.98rem; color: var(--gray); line-height: 1.7; }
+.planPrice { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 0; }
+.price { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: var(--neon); letter-spacing: 0.04em; line-height: 1; text-shadow: 0 0 24px rgba(212,255,0,0.35); }
+.period { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-left: 0.4rem; }
+.features { display: flex; flex-direction: column; gap: 0.9rem; flex: 1; }
+.feature { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.98rem; color: var(--gray); }
+.check { color: var(--neon); flex-shrink: 0; font-size: 0.9rem; text-shadow: 0 0 8px rgba(212,255,0,0.5); }
+.note { text-align: center; font-size: 0.85rem; color: var(--gray); opacity: 0.6; }
+
+.individualSection { padding: 6rem 4rem; border-top: 1px solid var(--border); }
+.individualHeader { margin-bottom: 3.5rem; }
+.individualTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.04em; margin-bottom: 0.6rem; }
+.individualSub { font-size: 1.05rem; color: var(--gray); }
+
+.programsList { border: 1px solid var(--border); border-radius: 0; }
+.programRow {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 2rem 2.5rem; border-bottom: 1px solid var(--border);
+  transition: background 0.2s, transform 0.2s; gap: 1.5rem; flex-wrap: wrap;
+}
+.programRow:last-child { border-bottom: none; }
+.programRow:hover { background: var(--card); transform: translateX(4px); }
+.programLeft { display: flex; align-items: center; gap: 1.5rem; }
+.programIcon { font-size: 2rem; }
+.programName { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.06em; }
+.programMeta { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-top: 0.2rem; }
+.programRight { display: flex; align-items: center; gap: 1.5rem; }
+.programOriginal { font-size: 0.95rem; color: var(--gray); text-decoration: line-through; }
+.programPrice { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--neon); letter-spacing: 0.04em; text-shadow: 0 0 16px rgba(212,255,0,0.3); }
+
+.faqSection { padding: 6rem 4rem; border-top: 1px solid var(--border); background: var(--dark); }
+.faqTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 0.04em; margin-bottom: 3.5rem; }
+.faqGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.faqItem {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--neon);
+  padding: 2.2rem;
+  background: var(--card);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.faqItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 20px rgba(212,255,0,0.06);
+}
+.faqQ { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; color: var(--white); }
+.faqA { font-size: 0.98rem; color: var(--gray); line-height: 1.75; }
+
+.freeCta { padding: 7rem 4rem; text-align: center; border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+.freeCta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(212,255,0,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.freeCtaTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5.5vw, 5.5rem); letter-spacing: 0.04em; margin-bottom: 1.2rem; position: relative; }
+.freeCtaSub { font-size: 1.05rem; color: var(--gray); max-width: 500px; margin: 0 auto 3rem; line-height: 1.8; position: relative; }
+
+@media (max-width: 1100px) { .plansSection { padding: 6rem 4rem 3rem; } .individualSection { padding: 5rem 4rem; } .faqSection { padding: 5rem 4rem; } .freeCta { padding: 6rem 4rem; } }
+@media (max-width: 900px) {
+  .plansSection { padding: 4rem 1.5rem 2rem; }
+  .plansGrid { grid-template-columns: 1fr; }
+  .planCard:hover { transform: translateY(-8px) scale(1.01); }
+  .individualSection { padding: 4rem 1.5rem; }
+  .faqSection { padding: 4rem 1.5rem; }
+  .faqGrid { grid-template-columns: 1fr; }
+  .freeCta { padding: 4rem 1.5rem; }
+  .programRow { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── HERO BACKGROUND IMAGE ──────────────────────────────────────── */
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.78) 50%, rgba(5,5,8,0.55) 100%),
+    linear-gradient(to bottom, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.65) 100%);
+}
+
+.originalPrice { font-size: 0.95rem; color: var(--dimgray); text-decoration: line-through; display: block; margin-bottom: 0.2rem; }

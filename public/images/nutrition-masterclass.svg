@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0e0a00"/>
+      <stop offset="100%" style="stop-color:#1a1400"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37"/>
+      <stop offset="50%" style="stop-color:#f5d060"/>
+      <stop offset="100%" style="stop-color:#c9a227"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#d4af3733"/>
+      <stop offset="100%" style="stop-color:#d4af3700"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="10"/></filter>
+  </defs>
+  <rect width="800" height="440" fill="url(#bg)"/>
+  <!-- Grid -->
+  <line x1="0" y1="110" x2="800" y2="110" stroke="#d4af3709" stroke-width="1"/>
+  <line x1="0" y1="220" x2="800" y2="220" stroke="#d4af3709" stroke-width="1"/>
+  <line x1="0" y1="330" x2="800" y2="330" stroke="#d4af3709" stroke-width="1"/>
+  <line x1="200" y1="0" x2="200" y2="440" stroke="#d4af3709" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="440" stroke="#d4af3709" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="440" stroke="#d4af3709" stroke-width="1"/>
+  <!-- Glow -->
+  <ellipse cx="400" cy="210" rx="190" ry="120" fill="#d4af3722" filter="url(#blur)"/>
+  <!-- Outer ring -->
+  <circle cx="400" cy="210" r="140" fill="none" stroke="#d4af3722" stroke-width="2"/>
+  <!-- Open book shape -->
+  <path d="M240 160 L240 290 Q310 270 400 280 Q490 270 560 290 L560 160 Q490 140 400 150 Q310 140 240 160Z" fill="#1a1400" stroke="#d4af3744" stroke-width="1.5"/>
+  <!-- Book spine -->
+  <line x1="400" y1="155" x2="400" y2="285" stroke="#d4af3766" stroke-width="2"/>
+  <!-- Left page lines -->
+  <line x1="260" y1="185" x2="385" y2="180" stroke="#d4af3733" stroke-width="1.5"/>
+  <line x1="260" y1="200" x2="385" y2="196" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="260" y1="215" x2="385" y2="212" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="260" y1="230" x2="385" y2="228" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="260" y1="245" x2="385" y2="244" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="260" y1="260" x2="385" y2="260" stroke="#d4af3322" stroke-width="1.5"/>
+  <!-- Right page lines -->
+  <line x1="415" y1="180" x2="540" y2="185" stroke="#d4af3733" stroke-width="1.5"/>
+  <line x1="415" y1="196" x2="540" y2="200" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="415" y1="212" x2="540" y2="215" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="415" y1="228" x2="540" y2="230" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="415" y1="244" x2="540" y2="245" stroke="#d4af3322" stroke-width="1.5"/>
+  <line x1="415" y1="260" x2="540" y2="260" stroke="#d4af3322" stroke-width="1.5"/>
+  <!-- Gold accent on book top -->
+  <path d="M240 160 Q310 140 400 150 Q490 140 560 160" fill="none" stroke="url(#gold)" stroke-width="2.5" opacity="0.8"/>
+  <!-- Label -->
+  <text x="400" y="400" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#d4af3766" letter-spacing="5" font-weight="700">NUTRITION MASTERCLASS</text>
+</svg>

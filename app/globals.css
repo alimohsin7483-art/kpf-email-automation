@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --black:    #050508;
+  --dark:     #0A0A0F;
+
+  --card:     #0F0F18;
+  --card2:    #141420;
+  --card3:    #1A1A28;
+
+  /* PREMIUM GOLD SYSTEM */
+  --gold-dark:   #7A4D00;
+  --gold-mid:    #C89B2F;
+  --gold-main:   #F4C542;
+  --gold-light:  #FFD76A;
+  --gold-soft:   #FFE39A;
+
+  --neon:        #F4C542;
+  --neon2:       #FFD76A;
+
+  --neon-dim: rgba(244,197,66,0.14);
+
+  --neon-glow:
+    0 0 18px rgba(244,197,66,0.35),
+    0 0 48px rgba(244,197,66,0.18);
+
+  --neon-glow-strong:
+    0 0 28px rgba(255,215,106,0.65),
+    0 0 80px rgba(244,197,66,0.28);
+
+  --white:    #F5F5F0;
+  --offwhite: #CECCC8;
+
+  --gray:     #9090A0;
+  --dimgray:  #555566;
+
+  --border:   #2A2112;
+  --border2:  #3D2E16;
+
+  --red:      #FF3333;
+
+  --card-shadow:
+    0 8px 32px rgba(0,0,0,0.6),
+    0 2px 8px rgba(0,0,0,0.4);
+
+  --card-shadow-hover:
+    0 28px 72px rgba(0,0,0,0.85),
+    0 8px 28px rgba(244,197,66,0.16);
+}
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+
+  font-family: 'Barlow', sans-serif;
+
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.65;
+
+  overflow-x: hidden;
+}
+
+/* SELECTION */
+
+::selection {
+  background: var(--gold-main);
+  color: var(--black);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* TYPOGRAPHY */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+/* PREMIUM GOLD TEXT */
+
+.gold-text {
+  background: linear-gradient(
+    135deg,
+    #fff6cc 0%,
+    #ffd95a 12%,
+    #ffcc33 22%,
+    #ffb800 35%,
+    #f5a300 48%,
+    #ffcf40 60%,
+    #ffe27a 72%,
+    #c97a00 88%,
+    #fff4b0 100%
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 10px rgba(255, 200, 0, 0.18),
+    0 0 25px rgba(255, 170, 0, 0.12);
+
+  animation: goldShine 6s linear infinite;
+}
+
+/* BUTTONS */
+/*
+ * All three button variants share a premium gold-liquid hover mechanic.
+ *
+ * HOW THE LIQUID RISE WORKS:
+ *   Every button is `position:relative; overflow:hidden`.
+ *   A ::before pseudo-element sits behind the text, sized 100%×100%,
+ *   filled with the gold gradient, and translated Y +110% (hidden below).
+ *   On hover, transform moves it to translateY(0) — rising from bottom.
+ *   cubic-bezier(0.22, 1, 0.36, 1) gives it a slightly springy, cinematic
+ *   feel (slow start, fast mid, subtle ease-out at top).
+ *   The text `color` transition makes it switch dark for contrast.
+ *   A `z-index:1` on the text keeps it above the rising layer.
+ */
+
+/* ── btn-gold ─────────────────────────────────────────────────────────────── */
+/*
+ * Already has gold fill — liquid effect here is a shimmer sweep:
+ * ::before becomes a bright highlight wave that sweeps left→right on hover,
+ * giving depth without making it look identical to btn-outline.
+ */
+.btn-gold {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    135deg,
+    #6B4300 0%,
+    #B8860B 18%,
+    #FFD76A 42%,
+    #FFF0B2 50%,
+    #FFD76A 58%,
+    #C89B2F 78%,
+    #6B4300 100%
+  );
+  background-size: 220% auto;
+
+  color: #050508;
+  padding: 1rem 2.8rem;
+  border: 1px solid rgba(255,215,106,0.35);
+  cursor: pointer;
+
+  clip-path: polygon(
+    10px 0%,
+    100% 0%,
+    calc(100% - 10px) 100%,
+    0% 100%
+  );
+
+  box-shadow:
+    0 0 10px rgba(255,215,106,0.25),
+    0 0 40px rgba(244,197,66,0.15);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-position 0.6s ease;
+}
+
+/* shimmer sweep layer */
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;  /* negative: sits behind text node without needing span wrapper */
+  pointer-events: none;
+}
+
+.btn-gold:hover {
+  transform: translateY(-4px) scale(1.03);
+  background-position: right center;
+  box-shadow:
+    0 0 22px rgba(255,215,106,0.55),
+    0 0 70px rgba(244,197,66,0.28),
+    0 8px 24px rgba(0,0,0,0.5);
+}
+
+.btn-gold:hover::before {
+  transform: translateX(100%);
+}
+
+/* ── btn-outline — GOLD LIQUID RISE ───────────────────────────────────────── */
+.btn-outline {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  border: 2px solid var(--gold-main);
+  color: var(--gold-main);
+  background: rgba(244,197,66,0.03);
+  padding: 1rem 2.8rem;
+  cursor: pointer;
+
+  clip-path: polygon(
+    10px 0%,
+    100% 0%,
+    calc(100% - 10px) 100%,
+    0% 100%
+  );
+
+  /* text color transitions for contrast on fill */
+  transition:
+    color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+/* the gold liquid layer — hidden below the button */
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+
+  background: linear-gradient(
+    160deg,
+    #7A4D00 0%,
+    #C89B2F 25%,
+    #FFD76A 55%,
+    #FFF0B2 72%,
+    #FFD76A 85%,
+    #B8860B 100%
+  );
+
+  /* start fully below — translateY(110%) ensures no pixel bleeds under clip-path */
+  transform: translateY(110%);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;  /* negative: text node auto-stacks above without span wrapper */
+}
+
+.btn-outline:hover {
+  color: var(--black);
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 22px rgba(255,215,106,0.45),
+    0 0 60px rgba(244,197,66,0.22),
+    0 8px 24px rgba(0,0,0,0.45);
+}
+
+.btn-outline:hover::before {
+  /* liquid rises up to fill the button */
+  transform: translateY(0%);
+}
+
+/* ── btn-white — subtle gold liquid rise ──────────────────────────────────── */
+.btn-white {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  border: 2px solid rgba(245,245,240,0.4);
+  color: var(--white);
+  padding: 1rem 2.8rem;
+  cursor: pointer;
+
+  clip-path: polygon(
+    10px 0%,
+    100% 0%,
+    calc(100% - 10px) 100%,
+    0% 100%
+  );
+
+  transition:
+    color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+/* subtle liquid — dimmer gold so it doesn't overpower white-text contexts */
+.btn-white::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: linear-gradient(
+    160deg,
+    rgba(180,120,0,0.92) 0%,
+    rgba(212,175,55,0.88) 40%,
+    rgba(255,215,106,0.82) 65%,
+    rgba(255,240,178,0.78) 80%,
+    rgba(212,175,55,0.85) 100%
+  );
+  transform: translateY(110%);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.btn-white:hover {
+  color: var(--black);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 18px rgba(255,215,106,0.3),
+    0 0 40px rgba(244,197,66,0.15);
+}
+
+.btn-white:hover::before {
+  transform: translateY(0%);
+}
+
+/* SECTION LABEL */
+
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+
+  color: var(--gold-main);
+
+  display: block;
+
+  margin-bottom: 0.8rem;
+}
+
+/* HERO */
+
+.page-hero {
+  padding: 11rem 4rem 7rem;
+
+  border-bottom: 1px solid var(--border);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 60% 0%,
+      rgba(244,197,66,0.08) 0%,
+      transparent 60%
+    );
+
+  pointer-events: none;
+}
+
+.page-hero-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(244,197,66,0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(244,197,66,0.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+
+  pointer-events: none;
+}
+
+/* HERO BACKGROUND */
+
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.88) 0%,
+      rgba(0,0,0,0.58) 40%,
+      rgba(0,0,0,0.22) 70%,
+      rgba(0,0,0,0.10) 100%
+    ),
+    url('/images/hero-bg.jpg') center/cover no-repeat;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.hero-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-bg--dark::after {
+  background:
+    url('/images/hero-bg.jpg') center / cover no-repeat,
+    linear-gradient(
+      135deg,
+      rgba(5,5,8,0.97) 0%,
+      rgba(18,12,4,0.95) 100%
+    );
+
+  background-blend-mode: multiply;
+}
+
+/* FOOTER */
+
+.footer-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-bg::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(5,5,8,0.82),
+      rgba(5,5,8,0.88)
+    ),
+    url('/public/logo.png') center top / cover no-repeat;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.footer-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .footer-bg::before {
+    background:
+      linear-gradient(
+        rgba(5,5,8,0.82),
+        rgba(5,5,8,0.88)
+      ),
+      url('/images/footer-bg.jpg') center center / cover no-repeat;
+  }
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldShine {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 8px rgba(244,197,66,0.7);
+  }
+
+  50% {
+    text-shadow:
+      0 0 24px rgba(255,215,106,0.95),
+      0 0 60px rgba(244,197,66,0.42);
+  }
+}
+
+.anim-1 { animation: fadeUp 0.7s 0.05s ease both; }
+.anim-2 { animation: fadeUp 0.7s 0.15s ease both; }
+.anim-3 { animation: fadeUp 0.7s 0.25s ease both; }
+.anim-4 { animation: fadeUp 0.7s 0.35s ease both; }
+.anim-5 { animation: fadeUp 0.7s 0.45s ease both; }
+
+/* SCREEN READER ONLY */
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border-width: 0;
+}

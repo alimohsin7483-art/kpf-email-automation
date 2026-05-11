@@ -1,0 +1,224 @@
+/* ── SECTION ────────────────────────────────────────────────────────────────── */
+.section {
+  padding: 7rem 4rem 5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+
+/* giant decorative quote mark */
+.deco {
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22rem;
+  line-height: 1;
+  color: rgba(212,255,0,0.03);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── STAGE ──────────────────────────────────────────────────────────────────── */
+.stageWrap {
+  position: relative;
+  min-height: 300px;
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+}
+
+/* every slide sits on top of each other; only active is visible */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transform: translateX(60px) scale(0.97);
+  transition:
+    opacity 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+
+.slidePrev {
+  transform: translateX(-60px) scale(0.97);
+}
+
+.slideActive {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+  position: relative; /* take space so stageWrap has height */
+}
+
+/* ── CARD ───────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--neon);
+  padding: 3.5rem 4rem;
+  width: 100%;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 40px rgba(212,255,0,0.04);
+  transition: box-shadow 0.4s;
+}
+.card:hover {
+  box-shadow: 0 24px 64px rgba(0,0,0,0.65), 0 0 50px rgba(212,255,0,0.08);
+}
+
+/* stars */
+.stars {
+  color: var(--neon);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.6rem;
+}
+
+.quote {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  letter-spacing: 0.04em;
+  line-height: 1.28;
+  color: var(--white);
+  font-style: normal;
+  margin-bottom: 2rem;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.name     { color: var(--white); }
+.location { color: var(--gray); }
+.result   { color: var(--neon); }
+.dot      { color: var(--dimgray); }
+
+.program {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dimgray);
+  border: 1px solid var(--border2);
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+}
+
+/* ── CONTROLS ───────────────────────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.arrow {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--gray);
+  font-size: 1.3rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.arrow:hover {
+  border-color: var(--neon);
+  color: var(--neon);
+  background: rgba(244,197,66,0.06);
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s, width 0.25s;
+}
+
+.dotActive {
+  background: var(--neon);
+  transform: scale(1.3);
+  width: 18px;
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(244,197,66,0.5);
+}
+
+/* ── PROGRESS BAR ───────────────────────────────────────────────────────────── */
+.progressWrap {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+  height: 2px;
+  background: var(--border);
+}
+
+.progress {
+  height: 100%;
+  background: var(--neon);
+  width: 0%;
+  animation: progressGrow linear forwards;
+  box-shadow: 0 0 6px rgba(244,197,66,0.5);
+}
+
+.progressPaused {
+  animation-play-state: paused;
+}
+
+@keyframes progressGrow {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ── RESULTS LINK ───────────────────────────────────────────────────────────── */
+.resultsLink {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+  display: inline-block;
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 0.2rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.resultsLink:hover {
+  color: var(--neon);
+  border-color: var(--neon);
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .section  { padding: 5rem 1.5rem 4rem; }
+  .card     { padding: 2.5rem 2rem; }
+  .stageWrap { min-height: 340px; }
+}

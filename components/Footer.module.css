@@ -1,0 +1,25 @@
+.footer {
+  background-image: linear-gradient(rgba(5,5,8,0.85), rgba(5,5,8,0.85)), url('/logo.png');
+  background-size: cover;
+  background-position: center;
+}
+.top { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 4rem; padding: 6rem 4rem; }
+.logo { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+.logoImg { border-radius: 50%; }
+.logoText { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.14em; color: var(--white); display: block; }
+.logoSub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--neon); display: block; opacity: 0.8; }
+.tagline { font-size: 0.95rem; color: var(--gray); line-height: 1.8; margin-bottom: 0.8rem; max-width: 300px; }
+.motto { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--neon); margin-bottom: 1.8rem; opacity: 0.6; }
+.socials { display: flex; gap: 1.5rem; }
+.social { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; color: var(--gray); transition: color 0.2s; text-transform: uppercase; }
+.social:hover { color: var(--neon); }
+.col { display: flex; flex-direction: column; gap: 0.9rem; }
+.colTitle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--neon); margin-bottom: 0.5rem; }
+.colLink { font-size: 0.92rem; color: var(--gray); transition: color 0.2s; }
+.colLink:hover { color: var(--white); }
+.bottom { padding: 1.8rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.copy { font-size: 0.82rem; color: var(--gray); opacity: 0.5; }
+.taglineBottom { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--neon); opacity: 0.4; }
+@media (max-width: 1024px) { .top { padding: 4rem 3rem; } .bottom { padding: 1.5rem 3rem; } }
+@media (max-width: 900px) { .top { grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem; } .bottom { padding: 1.5rem; } }
+@media (max-width: 540px) { .top { grid-template-columns: 1fr; } }

@@ -1,0 +1,53 @@
+.heroInner { position: relative; z-index: 2; }
+.heroTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 9vw, 9rem); letter-spacing: 0.04em; line-height: 0.95; margin-bottom: 1rem; }
+.gold { color: var(--neon); }
+.heroSub { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--neon); opacity: 0.7; }
+.bioSection { padding: 8rem 4rem; display: grid; grid-template-columns: 400px 1fr; gap: 6rem; align-items: start; border-bottom: 1px solid var(--border); }
+.photoWrap { position: relative; margin-bottom: 2rem; }
+.photoPlaceholder { aspect-ratio: 3/4; background: var(--card); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+.photoLogo { border-radius: 50%; opacity: 0.3; }
+.photoNote { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
+.photoBadge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--neon); padding: 1.2rem 1.5rem; text-align: center; }
+.badgeNum { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--black); display: block; line-height: 1; }
+.badgeLabel { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); display: block; }
+.credentials { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 3rem; }
+.credential { display: flex; align-items: center; gap: 0.8rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); }
+.credentialDot { color: var(--neon); font-size: 0.5rem; }
+.bioTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 0.04em; line-height: 1.05; margin: 0.6rem 0 2rem; }
+.bioText { font-size: 0.95rem; color: var(--gray); line-height: 1.85; margin-bottom: 1.2rem; }
+.bioText strong { color: var(--white); font-weight: 500; }
+.bioText em { color: var(--neon); font-style: italic; }
+.bioActions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+.valuesSection { padding: 6rem 3rem; border-bottom: 1px solid var(--border); background: var(--dark); }
+.valuesTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: 0.04em; margin-bottom: 3rem; }
+.valuesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.valueCard { background: var(--dark); padding: 2.5rem 2rem; transition: background 0.3s; }
+.valueCard:hover { background: var(--card); }
+.valueIcon { font-size: 2rem; display: block; margin-bottom: 1.2rem; }
+.valueTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.06em; margin-bottom: 0.8rem; }
+.valueDesc { font-size: 1rem; color: var(--gray); line-height: 1.65; }
+.statsRow { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--border); }
+.stat { padding: 3.5rem 2rem; text-align: center; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.statNum { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--neon); line-height: 1; display: block; }
+.statLabel { font-family: 'Barlow Condensed', sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gray); display: block; margin-top: 0.4rem; }
+.ctaSection { padding: 8rem 4rem; text-align: center; }
+.ctaTitle { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: 0.04em; margin-bottom: 1rem; }
+.ctaSub { font-size: 1rem; color: var(--gray); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.7; }
+.ctaActions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 900px) { .bioSection { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; } .photoBadge { bottom: -1rem; right: -0.5rem; } .valuesSection { padding: 4rem 1.5rem; } .valuesGrid { grid-template-columns: repeat(2, 1fr); } .statsRow { grid-template-columns: repeat(2, 1fr); } .stat { border-bottom: 1px solid var(--border); } .ctaSection { padding: 5rem 1.5rem; } }
+
+/* ── HERO BACKGROUND IMAGE ──────────────────────────────────────── */
+.heroBgImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.78) 50%, rgba(5,5,8,0.55) 100%),
+    linear-gradient(to bottom, rgba(5,5,8,0.2) 0%, rgba(5,5,8,0.65) 100%);
+}
